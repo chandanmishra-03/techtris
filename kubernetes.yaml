@@ -14,7 +14,19 @@ spec:
     metadata:
       labels:
         role: app
+        app: techtris
     spec:
+      spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - techtris
+              topologyKey: kubernetes.io/hostname
       containers:
       - name: app
         image: "{{ image_id }}"
