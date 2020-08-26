@@ -6,8 +6,6 @@ spec:
   selector:
     role: app
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 8080
-      nodePort: 32000
-  type: NodePort
+  type: LoadBalancer
